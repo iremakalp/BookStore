@@ -30,12 +30,6 @@ namespace WebApi.DbOperations
                         GenreId = 2,
                         PageCount = 250,
                         PublishDate = new DateTime(1972, 11, 01)
-                    },
-                    new Book{
-                        GenreId=2, // science
-                        Title="Herland",
-                        PageCount=230,
-                        PublishDate=new DateTime(2018,05,01)
                     }
                 );
 
