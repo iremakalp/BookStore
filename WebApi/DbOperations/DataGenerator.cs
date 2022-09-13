@@ -32,7 +32,6 @@ namespace WebApi.DbOperations
                         PublishDate = new DateTime(1972, 11, 01)
                     },
                     new Book{
-                        Id=3,
                         GenreId=2, // science
                         Title="Herland",
                         PageCount=230,
