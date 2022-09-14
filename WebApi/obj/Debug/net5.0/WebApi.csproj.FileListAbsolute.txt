@@ -64,3 +64,5 @@ C:\Users\LEnovo\Desktop\Patika\BookStoreProject\WebApi\obj\Debug\net5.0\refint\W
 C:\Users\LEnovo\Desktop\Patika\BookStoreProject\WebApi\obj\Debug\net5.0\WebApi.pdb
 C:\Users\LEnovo\Desktop\Patika\BookStoreProject\WebApi\obj\Debug\net5.0\WebApi.genruntimeconfig.cache
 C:\Users\LEnovo\Desktop\Patika\BookStoreProject\WebApi\obj\Debug\net5.0\ref\WebApi.dll
+C:\Users\LEnovo\Desktop\Patika\BookStoreProject\WebApi\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\LEnovo\Desktop\Patika\BookStoreProject\WebApi\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

@@ -37,7 +37,7 @@ namespace WebApi.Controllers
             BookDetailViewModel result;
             try
             {
-                GetBookDetailQuery query = new GetBookDetailQuery(_context);
+                GetBookDetailQuery query = new GetBookDetailQuery(_context, _mapper);
                 query.BookId=id;
                 result=query.Handle();
             }
