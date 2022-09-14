@@ -36,6 +36,7 @@ namespace WebApi
             });
 
             services.AddDbContext<BookStoreDbContext>(options=>options.UseInMemoryDatabase(databaseName:"BookStoreDb"));
+            services.AddAutoMapper(System.Reflection.Assembly.GetExecutingAssembly());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
