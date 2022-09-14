@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using WebApi.BookOperations.CreateBook;
 using WebApi.BookOperations.GetBookDetail;
 using WebApi.BookOperations.GetBooks;
+using WebApi.BookOperations.UpdateBook;
 using WebApi.DbOperations;
 
 namespace WebApi.Controllers
@@ -71,18 +72,20 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateBook([FromBody] Book book,int id)
+        public IActionResult UpdateBook([FromBody] UpdateBookModel book,int id)
         {
-            var updatedBook = _context.Books.SingleOrDefault(b => b.Id == id);
-            if (updatedBook is null)
-                return BadRequest();
-
-            updatedBook.GenreId=book.GenreId!=default?book.GenreId:updatedBook.GenreId;
-            updatedBook.Title = book.Title!=default?book.Title:updatedBook.Title;
-            updatedBook.PageCount = book.PageCount!=default?book.PageCount:updatedBook.PageCount;   
-            updatedBook.PublishDate = book.PublishDate!=default?book.PublishDate:updatedBook.PublishDate;
-            _context.SaveChanges();
-
+            UpdateBookCommand command = new UpdateBookCommand(_context);
+            try
+            {
+                command.BookId=id;
+                command.Model=book;
+                command.Handle();
+            }
+            catch (System.Exception ex)
+            {
+                
+                return BadRequest(ex.Message);
+            }
             return Ok();
         }
         [HttpDelete("{id}")]
