@@ -69,16 +69,9 @@ namespace WebApi.Controllers
                 command.Model=book;
 
                 CreateBookCommandValidator validator = new CreateBookCommandValidator();
-                ValidationResult result=validator.Validate(command);
-                if (result.IsValid==false)
-                {
-                    foreach (var item in result.Errors)
-                    {
-                        System.Console.WriteLine("Özellik :"+item.PropertyName+" Hata :"+item.ErrorMessage);
-                    }
-                   
-                }
-               else
+                //  ValidateAndThrow metodu dogrulama isleminde hata varsa hata mesajini dondurur
+                validator.ValidateAndThrow(command);
+   
                 command.Handle();
             }
             catch (System.Exception ex)
