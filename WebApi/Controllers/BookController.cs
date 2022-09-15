@@ -103,10 +103,12 @@ namespace WebApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteBook(int id)
         {
-            DeleteBookCommand command = new DeleteBookCommand(_context);
             try
             {
+                DeleteBookCommand command = new DeleteBookCommand(_context);
                 command.BookId=id;
+                DeleteBookCommandValidator validator = new DeleteBookCommandValidator();
+                validator.ValidateAndThrow(command);
                 command.Handle();
             }
             catch (System.Exception ex)
