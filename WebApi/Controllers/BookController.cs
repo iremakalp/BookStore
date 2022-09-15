@@ -42,6 +42,9 @@ namespace WebApi.Controllers
             {
                 GetBookDetailQuery query = new GetBookDetailQuery(_context, _mapper);
                 query.BookId=id;
+                GetBookDetailValidator validator = new GetBookDetailValidator();
+                validator.ValidateAndThrow(query);
+                
                 result=query.Handle();
             }
             catch (System.Exception ex)
@@ -52,12 +55,6 @@ namespace WebApi.Controllers
             return Ok(result);
             
         }
-        //[HttpGet]
-        //public Book Get([FromQuery] string id)
-        //{
-        //    var book = _context.Books.Where(b => b.Id == Convert.ToInt32(id)).SingleOrDefault();
-        //    return book;
-        //}
 
         [HttpPost]
         public IActionResult Add([FromBody] CreateBookModel book)
@@ -91,6 +88,8 @@ namespace WebApi.Controllers
             {
                 command.BookId=id;
                 command.Model=book;
+                UpdateBookCommandValidator validator = new UpdateBookCommandValidator();
+                validator.ValidateAndThrow(command);
                 command.Handle();
             }
             catch (System.Exception ex)
