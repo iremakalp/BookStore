@@ -32,7 +32,8 @@ namespace WebApi.Middlewares
                 string message="[Request] HTTP " + context.Request.Method + " - " + context.Request.Path;
                 Console.WriteLine(message);
                 await _next(context);
-               
+                watch.Stop();
+
                 // response bilgisi
                 message = "[Response] HTTP " + context.Request.Method +" - " + context.Request.Path+" responded "  
                 +" Status Code: "+ context.Response.StatusCode+ " in " +watch.Elapsed.TotalMilliseconds +" ms";
@@ -48,11 +49,12 @@ namespace WebApi.Middlewares
 
         private Task HandleException(HttpContext context, Exception ex, Stopwatch watch)
         {
-            string message="[Error] HTTP " + context.Request.Method +" - " +" Status Code: "+ context.Response.StatusCode +
-             " Error Message : " + ex.Message + " in " +watch.Elapsed.TotalMilliseconds +" ms";
-            Console.WriteLine(message);
-            context.Response.ContentType="application/json";
             context.Response.StatusCode=(int)HttpStatusCode.InternalServerError;
+            context.Response.ContentType="application/json";
+
+            string message="[Error] HTTP " + context.Request.Method +" - " +" Status Code: "+ context.Response.StatusCode +
+            " - Error Message : " + ex.Message + " in " +watch.Elapsed.TotalMilliseconds +" ms";
+            Console.WriteLine(message);
 
             // exception objesinin geriye json olarak donmesi gerekir
             // serilaize edilmesi gerekir

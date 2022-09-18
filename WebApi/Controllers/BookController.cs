@@ -16,7 +16,7 @@ namespace WebApi.Controllers
     [Route("[controller]s")]
     [ApiController]
 
-    public class BookController:ControllerBase
+    public class BookController : ControllerBase
     {
         private readonly BookStoreDbContext _context;
         private readonly IMapper _mapper;
@@ -30,37 +30,28 @@ namespace WebApi.Controllers
         public IActionResult GetBooks()
         {
             GetBooksQuery query = new GetBooksQuery(_context, _mapper);
-            var result= query.Handle();
+            var result = query.Handle();
             return Ok(result);
         }
-      
+
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
             BookDetailViewModel result;
-            try
-            {
-                GetBookDetailQuery query = new GetBookDetailQuery(_context, _mapper);
-                query.BookId=id;
-                GetBookDetailValidator validator = new GetBookDetailValidator();
-                validator.ValidateAndThrow(query);
-                
-                result=query.Handle();
-            }
-            catch (System.Exception ex)
-            {
-                
-                return BadRequest(ex.Message);
-            }
+            GetBookDetailQuery query = new GetBookDetailQuery(_context, _mapper);
+            query.BookId = id;
+            GetBookDetailValidator validator = new GetBookDetailValidator();
+            validator.ValidateAndThrow(query);
+            result = query.Handle();
             return Ok(result);
-            
+
         }
 
         [HttpPost]
         public IActionResult Add([FromBody] CreateBookModel book)
         {
-            CreateBookCommand command = new CreateBookCommand(_context,_mapper);
-            command.Model=book;
+            CreateBookCommand command = new CreateBookCommand(_context, _mapper);
+            command.Model = book;
             CreateBookCommandValidator validator = new CreateBookCommandValidator();
             //  ValidateAndThrow metodu dogrulama isleminde hata varsa hata mesajini dondurur
             validator.ValidateAndThrow(command);
@@ -69,40 +60,26 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateBook([FromBody] UpdateBookModel book,int id)
+        public IActionResult UpdateBook([FromBody] UpdateBookModel book, int id)
         {
             UpdateBookCommand command = new UpdateBookCommand(_context);
-            try
-            {
-                command.BookId=id;
-                command.Model=book;
-                UpdateBookCommandValidator validator = new UpdateBookCommandValidator();
-                validator.ValidateAndThrow(command);
-                command.Handle();
-            }
-            catch (System.Exception ex)
-            {
-                
-                return BadRequest(ex.Message);
-            }
+            command.BookId = id;
+            command.Model = book;
+            UpdateBookCommandValidator validator = new UpdateBookCommandValidator();
+            validator.ValidateAndThrow(command);
+            command.Handle();
+
             return Ok();
         }
         [HttpDelete("{id}")]
         public IActionResult DeleteBook(int id)
         {
-            try
-            {
-                DeleteBookCommand command = new DeleteBookCommand(_context);
-                command.BookId=id;
-                DeleteBookCommandValidator validator = new DeleteBookCommandValidator();
-                validator.ValidateAndThrow(command);
-                command.Handle();
-            }
-            catch (System.Exception ex)
-            {
-                
-                return BadRequest(ex.Message);
-            }
+            DeleteBookCommand command = new DeleteBookCommand(_context);
+            command.BookId = id;
+            DeleteBookCommandValidator validator = new DeleteBookCommandValidator();
+            validator.ValidateAndThrow(command);
+            command.Handle();
+
             return Ok();
         }
     }
