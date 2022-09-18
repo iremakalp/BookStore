@@ -1,7 +1,10 @@
 using System;
+using System.Diagnostics;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace WebApi.Middlewares
 {
@@ -18,19 +21,44 @@ namespace WebApi.Middlewares
         // bir middleware http cagrimi geldiginde http requeste karsilik gelen response donene kadar ki islemlerin loglanmasi
         public async Task Invoke(HttpContext context)
         {
-            // path endpoint bilgisi
-            // endpoint
-            string message="[Request] HTTP" + context.Request.Method + " - " + context.Request.Path;
-            Console.WriteLine(message);
-            await _next(context);
+            // ne kadar surede dondugunu bulmak icin
+            // diagnostics sistemin sagligini olcen, uzerindeki parametrelere bakan ve neyin ne adar calistigini
+            // bir timer mekanizmasi     
+            var watch=Stopwatch.StartNew();
+            try 
+            {
+                // path endpoint bilgisi
+                // request bilgisi
+                string message="[Request] HTTP " + context.Request.Method + " - " + context.Request.Path;
+                Console.WriteLine(message);
+                await _next(context);
+               
+                // response bilgisi
+                message = "[Response] HTTP " + context.Request.Method +" - " + context.Request.Path+" responded "  
+                +" Status Code: "+ context.Response.StatusCode+ " in " +watch.Elapsed.TotalMilliseconds +" ms";
+                Console.WriteLine(message);
+            }
+            catch (Exception ex)
+            {
+                watch.Stop();
+                await HandleException(context,ex,watch);
 
-            // response
-            message = "[Response] HTTP" + context.Response.StatusCode;
-            Console.WriteLine(message);
-
+            }
         }
 
+        private Task HandleException(HttpContext context, Exception ex, Stopwatch watch)
+        {
+            string message="[Error] HTTP " + context.Request.Method +" - " +" Status Code: "+ context.Response.StatusCode +
+             " Error Message : " + ex.Message + " in " +watch.Elapsed.TotalMilliseconds +" ms";
+            Console.WriteLine(message);
+            context.Response.ContentType="application/json";
+            context.Response.StatusCode=(int)HttpStatusCode.InternalServerError;
 
+            // exception objesinin geriye json olarak donmesi gerekir
+            // serilaize edilmesi gerekir
+           var result= JsonConvert.SerializeObject(new {error=ex.Message},Formatting.None);
+           return context.Response.WriteAsync(result);
+        }
     }
 
     public static class CustomExceptionMiddlewareExtensions

@@ -60,23 +60,11 @@ namespace WebApi.Controllers
         public IActionResult Add([FromBody] CreateBookModel book)
         {
             CreateBookCommand command = new CreateBookCommand(_context,_mapper);
-
-            try
-            {
-                command.Model=book;
-
-                CreateBookCommandValidator validator = new CreateBookCommandValidator();
-                //  ValidateAndThrow metodu dogrulama isleminde hata varsa hata mesajini dondurur
-                validator.ValidateAndThrow(command);
-   
-                command.Handle();
-            }
-            catch (System.Exception ex)
-            {
-                
-                return BadRequest(ex.Message);
-            }
-            
+            command.Model=book;
+            CreateBookCommandValidator validator = new CreateBookCommandValidator();
+            //  ValidateAndThrow metodu dogrulama isleminde hata varsa hata mesajini dondurur
+            validator.ValidateAndThrow(command);
+            command.Handle();
             return Ok();
         }
 
