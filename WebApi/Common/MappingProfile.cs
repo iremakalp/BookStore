@@ -1,9 +1,10 @@
-    using AutoMapper;
-using WebApi.BookOperations.CreateBook;
-using WebApi.BookOperations.GetBookDetail;
-using WebApi.BookOperations.GetBooks;
-using WebApi.BookOperations.UpdateBook;
+using AutoMapper;
+using WebApi.Application.BookOperations.Commands.CreateBook;
+using WebApi.Application.BookOperations.Queries.GetBookDetail;
+using WebApi.Application.BookOperations.Queries.GetBooks;
 using WebApi.Entities;
+using WebApi.Application.GenreOperations.Commands.CreateGenre;
+using WebApi.Application.GenreOperations.Queries.GetGenre;
 
 namespace WebApi.Common
 {
@@ -18,10 +19,13 @@ namespace WebApi.Common
           
           CreateMap<CreateBookModel,Book>();
           // formember ile source dan target a giderken hangi property nin hangi property ye eşitleneceğini belirtiyoruz
-          CreateMap<Book,BookDetailViewModel>().ForMember(dest=>dest.Genre,opt=>opt.MapFrom(src=>((GenreEnum)src.GenreId).ToString()));
+          CreateMap<Book,BookDetailViewModel>().ForMember(dest=>dest.Genre,opt=>opt.MapFrom(src=>((GenreEnum)src.Id).ToString()));
         
           CreateMap<Book,BooksViewModel>().ForMember(dest=>dest.Genre,opt=>opt.MapFrom(src=>((GenreEnum)src.GenreId).ToString()));
         
+            // Genre
+          CreateMap<Genre,GenreViewModel>();
+          CreateMap<CreateGenreModel,Genre>();
         }
     }
 }
