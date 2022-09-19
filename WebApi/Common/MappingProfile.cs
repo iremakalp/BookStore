@@ -3,6 +3,7 @@ using WebApi.BookOperations.CreateBook;
 using WebApi.BookOperations.GetBookDetail;
 using WebApi.BookOperations.GetBooks;
 using WebApi.BookOperations.UpdateBook;
+using WebApi.Entities;
 
 namespace WebApi.Common
 {
