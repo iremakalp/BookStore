@@ -1,7 +1,7 @@
 using System;
 using FluentValidation;
 
-namespace WebApi.BookOperations.CreateBook
+namespace WebApi.Application.BookOperations.Commands.CreateBook
 {
     // FluentValidation
     // AbstractValidator<T> : T tipinde bir nesne alir

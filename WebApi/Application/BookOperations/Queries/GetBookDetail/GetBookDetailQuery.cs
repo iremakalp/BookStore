@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using WebApi.Common;
 using WebApi.DbOperations;
 
-namespace WebApi.BookOperations.GetBookDetail
+namespace WebApi.Application.BookOperations.Queries.GetBookDetail
 {
     public class GetBookDetailQuery
     {
