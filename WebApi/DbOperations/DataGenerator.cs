@@ -56,27 +56,27 @@ namespace WebApi.DbOperations
                         Title = "Lean Startup",
                         GenreId = 1,
                         PageCount = 200,
-                        PublishDate = new DateTime(2001, 06, 12)
+                        PublishDate = new DateTime(2001, 06, 12),
+                        AuthorId = 1
                     },
                     new Book
                     {
                         Title = "Herland",
                         GenreId = 2,
                         PageCount = 250,
-                        PublishDate = new DateTime(1972, 11, 01)
+                        PublishDate = new DateTime(1972, 11, 01),
+                        AuthorId=2
                     },
                     new Book
                     {
                         Title = "Dune",
                         GenreId = 2,
                         PageCount = 540,
-                        PublishDate = new DateTime(1965, 06, 01)
+                        PublishDate = new DateTime(1965, 06, 01),
+                        AuthorId=3
                     }
                 );
                 
-                
-                
-
                 context.SaveChanges();
             }
         }
