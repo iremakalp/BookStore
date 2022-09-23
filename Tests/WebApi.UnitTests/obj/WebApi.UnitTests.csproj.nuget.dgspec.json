@@ -33,8 +33,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\LEnovo\\OneDrive\\Masaüstü\\Patika\\BookStoreProject\\WebApi\\WebApi.csproj": {
-                "projectPath": "C:\\Users\\LEnovo\\OneDrive\\Masaüstü\\Patika\\BookStoreProject\\WebApi\\WebApi.csproj"
+              "c:\\Users\\LEnovo\\OneDrive\\Masaüstü\\Patika\\BookStoreProject\\WebApi\\WebApi.csproj": {
+                "projectPath": "c:\\Users\\LEnovo\\OneDrive\\Masaüstü\\Patika\\BookStoreProject\\WebApi\\WebApi.csproj"
               }
             }
           }
@@ -98,14 +98,14 @@
         }
       }
     },
-    "C:\\Users\\LEnovo\\OneDrive\\Masaüstü\\Patika\\BookStoreProject\\WebApi\\WebApi.csproj": {
+    "c:\\Users\\LEnovo\\OneDrive\\Masaüstü\\Patika\\BookStoreProject\\WebApi\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LEnovo\\OneDrive\\Masaüstü\\Patika\\BookStoreProject\\WebApi\\WebApi.csproj",
+        "projectUniqueName": "c:\\Users\\LEnovo\\OneDrive\\Masaüstü\\Patika\\BookStoreProject\\WebApi\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "C:\\Users\\LEnovo\\OneDrive\\Masaüstü\\Patika\\BookStoreProject\\WebApi\\WebApi.csproj",
+        "projectPath": "c:\\Users\\LEnovo\\OneDrive\\Masaüstü\\Patika\\BookStoreProject\\WebApi\\WebApi.csproj",
         "packagesPath": "C:\\Users\\LEnovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LEnovo\\OneDrive\\Masaüstü\\Patika\\BookStoreProject\\WebApi\\obj\\",
+        "outputPath": "c:\\Users\\LEnovo\\OneDrive\\Masaüstü\\Patika\\BookStoreProject\\WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
