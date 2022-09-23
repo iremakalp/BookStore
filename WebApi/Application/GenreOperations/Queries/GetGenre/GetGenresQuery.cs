@@ -8,11 +8,11 @@ namespace WebApi.Application.GenreOperations.Queries.GetGenre
 {
     public class GetGenresQuery
     {
-        private readonly BookStoreDbContext _dbContext;
+        private readonly IBookStoreDbContext _dbContext;
 
         // iki model arasinda donusum yapmak icin mapper kullanilir
         private readonly IMapper _mapper;
-        public GetGenresQuery(BookStoreDbContext dbContext, IMapper mapper)
+        public GetGenresQuery(IBookStoreDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
             _mapper = mapper;

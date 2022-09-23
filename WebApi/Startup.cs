@@ -38,11 +38,14 @@ namespace WebApi
             });
 
             services.AddDbContext<BookStoreDbContext>(options=>options.UseInMemoryDatabase(databaseName:"BookStoreDb"));
+             // Scoped: Her istek icin yeni bir nesne olusturulur
+            services.AddScoped<IBookStoreDbContext>(provider=>provider.GetService<BookStoreDbContext>());
+            
             services.AddAutoMapper(System.Reflection.Assembly.GetExecutingAssembly());
 
             // ILoggerService cagrildiginda console logger service donsun
             services.AddSingleton<ILoggerService, ConsoleLoggerService>();
-        
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
