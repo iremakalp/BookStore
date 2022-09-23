@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5TvAwCM6kNNLLdO3p8D8j2TSFLOTQvatTTNlcHTt9ZCmDGBLwevTFEhVFfN2s1p78MEH9Ch52MraZaxR04x0+g==",
+  "dgSpecHash": "rFPHT9RCehrf0PApSQhwKiI8gOE1Koc/6Vtdfy+uZp2MKjWEI5gleSMMHJCg2HOHNLFsqzPqNAjWhvbolWQc8g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LEnovo\\Desktop\\Patika\\BookStoreProject\\WebApi\\WebApi.csproj",
+  "projectFilePath": "C:\\Users\\LEnovo\\OneDrive\\Masaüstü\\Patika\\BookStoreProject\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LEnovo\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\LEnovo\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
@@ -32,12 +32,5 @@
     "C:\\Users\\LEnovo\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
     "C:\\Users\\LEnovo\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Önbellek dosyası C:\\Users\\LEnovo\\Desktop\\Patika\\BookStoreProject\\WebApi\\obj\\project.nuget.cache okunurken bir sorun oluştu : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
