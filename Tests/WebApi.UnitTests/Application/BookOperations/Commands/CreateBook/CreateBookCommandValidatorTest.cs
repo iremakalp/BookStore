@@ -61,6 +61,8 @@ namespace WebApi.UnitTests.Application.BookOperations.Commands.CreateBook
             result.Errors.Count.Should().BeGreaterThan(0);
         }
 
+         // happy path
+        // testin basarili oldugu durum
         [Fact]
         public void WhenValidInputsAreGiven_Validator_ShouldNotBeReturnError()
         {

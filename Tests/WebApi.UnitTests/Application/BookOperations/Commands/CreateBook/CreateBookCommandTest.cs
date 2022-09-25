@@ -51,6 +51,9 @@ namespace WebApi.UnitTests.Application.BookOperations.Commands.CreateBook
             
         }
 
+
+        // happy path
+        // testin basarili oldugu durum
         [Fact]
         public void WhenValidInputsAreGiven_Book_ShouldBeCreated()
         {
