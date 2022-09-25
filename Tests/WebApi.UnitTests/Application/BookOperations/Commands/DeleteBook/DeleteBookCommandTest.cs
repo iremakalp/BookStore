@@ -6,7 +6,7 @@ using WebApi.DbOperations;
 using WebApi.UnitTests.TestSetup;
 using Xunit;
 
-namespace WebApi.UnitTests.Application.BookOperations.Commands.CreateBook
+namespace WebApi.UnitTests.Application.BookOperations.Commands.DeleteBook
 {
     public class DeleteBookCommandTest:IClassFixture<CommonTestFixture>
     {
