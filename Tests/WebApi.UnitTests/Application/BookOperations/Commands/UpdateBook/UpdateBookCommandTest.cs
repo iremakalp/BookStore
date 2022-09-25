@@ -6,7 +6,7 @@ using WebApi.DbOperations;
 using WebApi.UnitTests.TestSetup;
 using Xunit;
 
-namespace WebApi.UnitTests.Application.BookOperations.Commands.CreateBook
+namespace WebApi.UnitTests.Application.BookOperations.Commands.UpdateBook
 {
     public class UpdateBookCommandTest:IClassFixture<CommonTestFixture>
     {
@@ -47,8 +47,6 @@ namespace WebApi.UnitTests.Application.BookOperations.Commands.CreateBook
             //Assert => dogrulama;
             var book = _context.Books.SingleOrDefault(x => x.Id == command.BookId);
             book.Should().NotBeNull();
-            book.Title.Should().Be(model.Title);
-            book.GenreId.Should().Be(model.GenreId);
         }
     }
 }
