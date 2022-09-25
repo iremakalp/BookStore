@@ -24,7 +24,7 @@ namespace WebApi.UnitTests.Application.BookOperations.Commands.CreateBook
         [InlineData(1," ",1)]
         [InlineData(1,"Lord of The Rings",0)]
 
-        public void WhenInvalidInputsAreGiven_InvalidOperationException_ShouldBeReturnErrors(int bookId,string title,int genreId)
+        public void WhenInvalidInputsAreGiven_Validator_ShouldBeReturnErrors(int bookId,string title,int genreId)
         {
             // arrange
             UpdateBookCommand command = new UpdateBookCommand(_context);
@@ -44,7 +44,7 @@ namespace WebApi.UnitTests.Application.BookOperations.Commands.CreateBook
 
         // Happy Path
         [Fact]
-        public void WhenValidInputsAreGiven_Book_ShouldBeUpdated()
+        public void WhenValidInputsAreGiven_Validator_ShouldBeUpdated()
         {
             UpdateBookCommand command = new UpdateBookCommand(null);
             command.BookId = 1; 

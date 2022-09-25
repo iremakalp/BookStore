@@ -33,7 +33,7 @@ namespace WebApi.UnitTests.Application.BookOperations.Commands.CreateBook
 
         // happy path
         [Fact]
-        public void WhenValidInputsAreGiven_Validator_ShouldBeRemove()
+        public void WhenValidInputsAreGiven_Book_ShouldBeDeleted()
         {
             // arrange
             DeleteBookCommand command = new DeleteBookCommand(_context);
