@@ -26,6 +26,18 @@ namespace WebApi.UnitTests.TestSetup
                     FirstName = "George",
                     LastName = "Martin",
                     DateOfBirth = new DateTime(1948, 9, 20)
+                },
+                new Author
+                {
+                    FirstName = "J. R. R.",
+                    LastName = "Tolkien",
+                    DateOfBirth = new DateTime(1892, 1, 3)
+                },
+                new Author
+                {
+                    FirstName = "Isaac",
+                    LastName = "Asimov",
+                    DateOfBirth = new DateTime(1920, 1, 2)
                 });
             context.SaveChanges();
         }

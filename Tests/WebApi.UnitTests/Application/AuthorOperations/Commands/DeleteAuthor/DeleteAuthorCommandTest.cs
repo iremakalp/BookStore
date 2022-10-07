@@ -22,25 +22,36 @@ namespace WebApi.UnitTests.Application.AuthorOperations.Commands.DeleteAuthor
             // Arrange -- hazirlik
             DeleteAuthorCommand command= new DeleteAuthorCommand(_context);
             command.AuthorId=0;
-
             // Act -- işlem(calistirma)
             // Assert -- dogrulama
             // Invoking -- cagirma
-            FluentActions.Invoking(()=>command.Handle())
-                .Should().Throw<InvalidOperationException>().And.Message.Should().Be("Yazar bulunamadı");
+            FluentActions
+            .Invoking(()=>command.Handle())
+            .Should().Throw<InvalidOperationException>().And.Message.Should().Be("Yazar bulunamadı.");
             
         }
-
+        [Fact]
+        public void WhenAuthorBooksExist_InvalidOperationException_ShouldBeReturn()
+        {
+            // Arrange -- hazirlik
+            DeleteAuthorCommand command= new DeleteAuthorCommand(_context);
+            command.AuthorId=1;
+            // Act -- işlem(calistirma)
+            // Assert -- dogrulama
+            // Invoking -- cagirma
+            FluentActions
+            .Invoking(()=>command.Handle())
+            .Should().Throw<InvalidOperationException>().And.Message.Should().Be("Bu yazarın kitabı olduğu için silinemez.");
+       
+        }
         [Fact]
         public void WhenValidInputsAreGiven_Author_ShouldBeDeleted()
         {
             // Arrange -- hazirlik
             DeleteAuthorCommand command= new DeleteAuthorCommand(_context);
-            command.AuthorId=1;
-
+            command.AuthorId=5;
             // Act -- işlem(calistirma)
             FluentActions.Invoking(()=>command.Handle()).Invoke();
-
             // Assert -- dogrulama
             var author = _context.Authors.SingleOrDefault(x=>x.Id == command.AuthorId);
             author.Should().BeNull();
