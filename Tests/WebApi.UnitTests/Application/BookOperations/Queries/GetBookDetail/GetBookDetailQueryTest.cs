@@ -39,11 +39,11 @@ namespace WebApi.UnitTests.Application.BookOperations.Queries.GetBookDetail
         {
             // arrange
             GetBookDetailQuery bookDetailQuery = new GetBookDetailQuery(_context,_mapper);
-            bookDetailQuery.BookId = 1;
+            bookDetailQuery.BookId =4;
             // act -- işlem(calistirma)
             FluentActions.Invoking(()=>bookDetailQuery.Handle()).Invoke();
             // assert -- dogrulama
-            var book = bookDetailQuery.Handle();
+            var book = _context.Books.SingleOrDefault(book=>book.Id==bookDetailQuery.BookId);
             book.Should().NotBeNull();
 
             

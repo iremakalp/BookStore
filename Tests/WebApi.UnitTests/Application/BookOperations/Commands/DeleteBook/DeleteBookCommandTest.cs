@@ -22,7 +22,7 @@ namespace WebApi.UnitTests.Application.BookOperations.Commands.DeleteBook
         {
             // arrange
             DeleteBookCommand command = new DeleteBookCommand(_context);
-            command.BookId = 1000;
+            command.BookId = 0;
             // act -- işlem(calistirma)
             // assert -- dogrulama
             // Invoking -- cagirma

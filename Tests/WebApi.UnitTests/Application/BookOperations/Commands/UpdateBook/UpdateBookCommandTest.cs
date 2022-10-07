@@ -37,16 +37,21 @@ namespace WebApi.UnitTests.Application.BookOperations.Commands.UpdateBook
         {
             // arrange
             UpdateBookCommand command = new UpdateBookCommand(_context);
-            command.BookId = 1;
-            UpdateBookModel model = new UpdateBookModel(){Title = "Lord of Rings", GenreId = 1};
-            command.Model = model;
+            command.BookId = 4;
+            command.Model= new UpdateBookModel()
+            {
+                Title = "Updated Title",
+                GenreId = 2
+            };
            
             //Act;
             FluentActions.Invoking(() => command.Handle()).Invoke();
 
             //Assert => dogrulama;
             var book = _context.Books.SingleOrDefault(x => x.Id == command.BookId);
-            book.Should().NotBeNull();
+            book.Title.Should().Be(command.Model.Title);
+            book.GenreId.Should().Be(command.Model.GenreId);
+            
         }
     }
 }

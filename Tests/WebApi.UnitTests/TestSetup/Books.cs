@@ -32,7 +32,23 @@ namespace   WebApi.UnitTests.TestSetup
                 AuthorId = 3,
                 PageCount = 540,
                 PublishDate = new DateTime(1965, 06, 01)
-            } );
+            },
+            new Book
+            {
+                Title = "I, Robot",
+                GenreId = 2,
+                AuthorId = 4,
+                PageCount = 400,
+                PublishDate = new DateTime(1950, 01, 01)
+            },
+            new Book
+            {
+                Title = "The Hitchhiker's Guide to the Galaxy",
+                GenreId = 2,
+                AuthorId = 1,
+                PageCount = 140,
+                PublishDate = new DateTime(1979, 09, 12)
+            });
             context.SaveChanges();
         }
     }
