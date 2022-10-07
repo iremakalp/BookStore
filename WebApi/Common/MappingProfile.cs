@@ -40,7 +40,7 @@ namespace WebApi.Common
           CreateMap<Genre,GenreViewModel>();
           CreateMap<CreateGenreModel,Genre>();
           CreateMap<Genre,GenreDetailViewModel>();
-
+          
 
           // Author
           CreateMap<Author,AuthorViewModel>();
