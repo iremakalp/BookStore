@@ -52,7 +52,7 @@ namespace WebApi.Controllers
         [HttpPost]
         public IActionResult AddGenre([FromBody] CreateGenreModel genre)
         {
-            CreateGenreCommand command = new CreateGenreCommand(_context);
+            CreateGenreCommand command = new CreateGenreCommand(_context,_mapper);
             command.Model = genre;
             CreateGenreCommandValidator validator = new CreateGenreCommandValidator();
             validator.ValidateAndThrow(command);

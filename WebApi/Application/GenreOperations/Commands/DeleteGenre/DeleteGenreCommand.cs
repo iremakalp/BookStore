@@ -19,7 +19,7 @@ namespace WebApi.Application.GenreOperations.Commands.DeleteGenre
         {
             var deletedGenre=_dbContext.Genres.SingleOrDefault(x=>x.Id==GenreId);
             if(deletedGenre is null)
-                throw new InvalidOperationException("Kitap bulunamadı");
+                throw new InvalidOperationException("Kitap türü bulunamadı");
             
             _dbContext.Genres.Remove(deletedGenre);
             _dbContext.SaveChanges();

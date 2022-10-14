@@ -21,7 +21,7 @@ namespace WebApi.Application.GenreOperations.Commands.UpdateGenre
         {
             var updatedGenre=_dbContext.Genres.SingleOrDefault(x=>x.Id==GenreId);
             if(updatedGenre is null)
-                throw new InvalidOperationException("Kitap bulunamadı");
+                throw new InvalidOperationException("Kitap türü bulunamadı");
 
             if(_dbContext.Genres.Any(x=>x.Name.ToLower()==Model.Name.ToLower() && x.Id!=GenreId))
                 throw new InvalidOperationException("Aynı isimde kitap türü zaten mevcut");           
