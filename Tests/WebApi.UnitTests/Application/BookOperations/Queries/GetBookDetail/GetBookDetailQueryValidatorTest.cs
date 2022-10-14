@@ -9,7 +9,7 @@ using Xunit;
 
 namespace WebApi.UnitTests.Application.BookOperations.Queries.GetBookDetail
 {
-    public class GetBookDetailValidatorTest:IClassFixture<CommonTestFixture>
+    public class GetBookDetailQueryValidatorTest:IClassFixture<CommonTestFixture>
     {
         [Theory]
         [InlineData(0)]
